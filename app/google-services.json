@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "809870765119",
+    "project_id": "grandlegacyresturant",
+    "storage_bucket": "grandlegacyresturant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809870765119:android:7f2dcf3a0503d2c8be1c8a",
+        "android_client_info": {
+          "package_name": "com.example.grandlegacyresturant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809870765119-02g1ci29dfl2npftu5m7bbt5htd8eprt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkqaMTYR5v_FEWultBWLFcyLgAqUqQp1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809870765119-02g1ci29dfl2npftu5m7bbt5htd8eprt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

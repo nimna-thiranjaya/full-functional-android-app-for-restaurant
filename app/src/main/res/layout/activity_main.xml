@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity" >
+
+    <ImageView
+        android:id="@+id/r_logo"
+        android:layout_width="347dp"
+        android:layout_height="352dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gl_logo" />
+
+    <TextView
+        android:id="@+id/r_name"
+        android:layout_width="382dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/new_rocker"
+        android:text="@string/r_name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_logo" />
+
+    <Button
+        android:id="@+id/r_start_btn"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="167dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="52dp"
+        android:text="@string/r_start_btn"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="@android:color/holo_orange_light"
+        app:cornerRadius="@dimen/r_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_dis"
+        app:layout_constraintVertical_bias="0.593" />
+
+    <TextView
+        android:id="@+id/r_dis"
+        android:layout_width="368dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/new_rocker"
+        android:text="@string/r_dis"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_name" />
+</androidx.constraintlayout.widget.ConstraintLayout>
