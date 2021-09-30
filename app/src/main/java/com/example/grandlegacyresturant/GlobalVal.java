@@ -5,5 +5,4 @@ import com.example.grandlegacyresturant.Model.User;
 
 public class GlobalVal {
     public static  User currentUser = new User();
-    public static  Order currentOrder = new Order();
 }

@@ -124,7 +124,7 @@ public class Profile_Fragment extends Fragment {
                             @Override
                             public void onComplete(@NonNull  Task<Void> task) {
                                 if(task.isSuccessful()){
-                                    Toast.makeText(getActivity(),"Acount Deleted",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getActivity(),"Account Deleted",Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(getActivity(),LoginActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
