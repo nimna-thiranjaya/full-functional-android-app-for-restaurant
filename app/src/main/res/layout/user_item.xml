@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="35dp"
+    android:elevation="12dp"
+    app:cardBackgroundColor="#DEEF3B"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="393dp"
+        android:layout_height="195dp"
+        android:outlineSpotShadowColor="@color/yellow"
+        android:padding="20dp"
+        android:weightSum="5">
+
+        <TextView
+            android:id="@+id/unametxt"
+            android:layout_width="329dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:text="Name"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ufeedbacktxt"
+            android:layout_width="333dp"
+            android:layout_height="111dp"
+            android:layout_below="@+id/unametxt"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginRight="5dp"
+            android:text="feedback"
+            android:textColor="#000"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/urateCounttxt"
+            android:layout_width="358dp"
+            android:layout_height="51dp"
+            android:layout_below="@+id/ufeedbacktxt"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="-51dp"
+            android:layout_marginRight="5dp"
+            android:padding="10dp"
+            android:elevation="12dp"
+            android:text="Rate Count"
+            android:textColor="#000"
+            android:textSize="17sp" />
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <androidx.cardview.widget.CardView app:cardUseCompatPadding="true" android:id="@+id/card1" app:cardBackgroundColor="#EDFFB2" android:elevation="1500dp" app:cardCornerRadius="40dp" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_height="wrap_content" android:layout_width="match_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout android:layout_height="249dp" android:layout_width="391dp" android:weightSum="5" android:padding="20dp" android:outlineSpotShadowColor="@color/yellow">
+
+    <TextView android:id="@+id/nametxt" android:layout_height="54dp" android:layout_width="351dp" android:textStyle="bold" android:textSize="20sp" android:textColor="#000" android:text="Name" android:layout_marginRight="5dp" android:layout_marginLeft="10dp"/>
+
+    <TextView android:id="@+id/feedbacktxt" android:layout_height="60dp" android:layout_width="345dp" android:textSize="17sp" android:textColor="#000" android:text="feedback" android:layout_marginRight="5dp" android:layout_marginLeft="10dp" android:layout_below="@+id/nametxt"/>
+
+    <TextView android:id="@+id/rateCounttxt" android:elevation="12dp" android:layout_height="53dp" android:layout_width="331dp" android:padding="10dp" android:textSize="17sp" android:textColor="#000" android:text="rateCount" android:layout_marginRight="5dp" android:layout_marginLeft="10dp" android:layout_below="@+id/feedbacktxt"/>
+
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:layout_below="@+id/rateCounttxt" android:orientation="horizontal">
+
+    <Button android:id="@+id/btnEdit" android:layout_height="wrap_content" android:layout_width="150dp" android:text="Edit" android:layout_marginRight="5dp" android:textAllCaps="false"/>
+
+    <Button android:id="@+id/btnDelete" android:layout_height="match_parent" android:layout_width="177dp" android:text="Delete" android:layout_marginLeft="5dp" android:textAllCaps="false"/>
+
+</LinearLayout>
+
+</RelativeLayout>
+
+</androidx.cardview.widget.CardView>

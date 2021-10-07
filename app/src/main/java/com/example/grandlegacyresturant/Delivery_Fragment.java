@@ -1,64 +1,151 @@
 package com.example.grandlegacyresturant;
 
+import com.example.grandlegacyresturant.Model.OrderModel;
+
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Delivery_Fragment#newInstance} factory method to
+ * Use the {@link Delivery_Fragment} factory method to
  * create an instance of this fragment.
  */
 public class Delivery_Fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    EditText tipForDp;
+    Button addtip_BTN;
+    TextView diplaytotal,disName,disAdd;
+    private  DatabaseReference mDatabase;
+    ProgressBar pd;
+    int counter = 0;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private RecyclerView.LayoutManager layoutManager;
+    private TextView orderidtxt,statustxt,totaltxt;
 
     public Delivery_Fragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Delivery_Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Delivery_Fragment newInstance(String param1, String param2) {
-        Delivery_Fragment fragment = new Delivery_Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_delivery_, container, false);
+        View v = inflater.inflate(R.layout.fragment_delivery_, container, false);
+        tipForDp = (EditText) v.findViewById(R.id.adtip_box);
+        addtip_BTN = (Button) v.findViewById(R.id.addtip_btn);
+        diplaytotal = (TextView) v.findViewById(R.id.dis_total);
+        disAdd = (TextView) v.findViewById(R.id.textView23);
+        disName = (TextView) v.findViewById(R.id.textView26);
+        tipForDp.getText().toString();
+
+        prog(pd = v.findViewById(R.id.seekBar2));
+
+
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Orders").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
+                Object total = map.get("total");
+                Object name = map.get("name");
+                Object add = map.get("add1");
+                Object add2 = map.get("add2");
+                Object city = map.get("city");
+
+
+                diplaytotal.setText(String.valueOf("Your Total Bill :" + total));
+                disAdd.setText(String.valueOf(add+","+add2+","+ city));
+                disName.setText(String.valueOf(name));
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(), "Faild", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        addtip_BTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float tip = Float.parseFloat(tipForDp.getText().toString());
+
+                mDatabase = FirebaseDatabase.getInstance().getReference().child("Orders").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+                mDatabase.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
+                        Object total = map.get("total");
+                        float pValue = Float.parseFloat(String.valueOf(total));
+
+                        float netTotal = pValue + tip;
+                        diplaytotal.setText(String.valueOf("Your Total Bill :" +netTotal));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(getContext(), "Faild", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+
+
+
+            }
+        });
+
+        return v;
+
     }
+
+    private void prog(ProgressBar progressBar) {
+        final Timer t = new Timer();
+        TimerTask tt = new TimerTask() {
+            @Override
+            public void run()
+            {
+                counter++;
+                pd.setProgress(counter);
+
+                if(counter == 120){
+                    t.cancel();
+                }
+            }
+        };
+        t.schedule(tt, 2, 2101*20);
+    }
+
+
 }

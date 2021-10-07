@@ -21,7 +21,7 @@
         tools:visibility="visible" />
 
     <Button
-        android:id="@+id/l_login_btn"
+        android:id="@+id/admin_login_btn"
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="101dp"
         android:layout_height="51dp"
@@ -34,10 +34,10 @@
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forgetpass_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/admin_forgetpass_btn" />
 
     <EditText
-        android:id="@+id/admin_password_box"
+        android:id="@+id/password_box"
         android:layout_width="266dp"
         android:layout_height="49dp"
         android:layout_marginTop="4dp"
@@ -61,10 +61,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/admin_email_box" />
+        app:layout_constraintTop_toBottomOf="@+id/email_box" />
 
     <EditText
-        android:id="@+id/admin_email_box"
+        android:id="@+id/email_box"
         android:layout_width="266dp"
         android:layout_height="49dp"
         android:layout_marginTop="4dp"
@@ -135,7 +135,7 @@
         app:srcCompat="@drawable/log_logo" />
 
     <TextView
-        android:id="@+id/forgetpass_btn"
+        android:id="@+id/admin_forgetpass_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -145,6 +145,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.791"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/admin_password_box" />
+        app:layout_constraintTop_toBottomOf="@+id/password_box" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

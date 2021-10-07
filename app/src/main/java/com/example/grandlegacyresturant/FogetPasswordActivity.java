@@ -45,6 +45,8 @@ public class FogetPasswordActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(FogetPasswordActivity.this, "email send successful", Toast.LENGTH_SHORT).show();
+                            Intent i =new Intent(FogetPasswordActivity.this,LoginActivity.class);
+                            startActivity(i);
 
                         }else {
                             Toast.makeText(FogetPasswordActivity.this, "Error"+task.toString(), Toast.LENGTH_SHORT).show();

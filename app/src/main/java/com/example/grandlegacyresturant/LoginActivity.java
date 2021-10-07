@@ -53,13 +53,13 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_login);
-        inputEmail= findViewById(R.id.admin_email_box);
-        inputPassword= findViewById(R.id.admin_password_box);
+        inputEmail= findViewById(R.id.email_box);
+        inputPassword= findViewById(R.id.password_box);
         progressDialog =new ProgressDialog(this);
         mAuth =FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
-        btnlogin= findViewById(R.id.l_login_btn);
-        forbtn = findViewById(R.id.forgetpass_btn);
+        btnlogin= findViewById(R.id.admin_login_btn);
+        forbtn = findViewById(R.id.admin_forgetpass_btn);
 
 
 

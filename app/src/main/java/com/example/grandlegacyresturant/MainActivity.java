@@ -16,41 +16,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_main);
 
-        button =(Button) findViewById(R.id.r_start_btn);
-        admin_btn = (Button) findViewById(R.id.login_Admin_btn);
+        button =  findViewById(R.id.r_start_btn);
+        admin_btn =findViewById(R.id.login_Admin_btn);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivityLogin();
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
-
-        admin_btn.setOnClickListener(new View.OnClickListener() {
+       admin_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivityAdminLogin();
+                Intent intent = new Intent(MainActivity.this, AdminLogin.class);
+                startActivity(intent);
             }
         });
 
 
-
-
-
-    }
-
-    private void openActivityAdminLogin() {
-        Intent intent =new Intent(this,AdminLoginActivity.class);
-        startActivity(intent);
-    }
-
-    public void openActivityLogin(){
-        Intent intent =new Intent(this,LoginActivity.class);
-        startActivity(intent);
     }
 }
